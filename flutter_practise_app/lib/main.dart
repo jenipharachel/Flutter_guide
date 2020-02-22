@@ -5,6 +5,10 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  void printAnswer() {
+    print("Orange is chosen");
+  }
+
   @override /* overrides the build method in Stateless Widget with our custom Widget */
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,7 +17,26 @@ class MyApp extends StatelessWidget {
         title: Text('My Flutter Practise App'),
         centerTitle: true,
       ),
-      body: Text("You are looking at the body of my App"),
+      body: Column(
+        children: [
+          Text('Quiz Questions'),
+          Text("Question 1 - Pick a fruit"),
+          RaisedButton(
+            child: Text("Orange"),
+            onPressed: printAnswer,
+          ),
+          RaisedButton(
+            child: Text("Apple"),
+            onPressed: () => print("Apple is chosen"),
+          ),
+          RaisedButton(
+            child: Text("Banana"),
+            onPressed: () {
+              print("Banana is chosen");
+            },
+          )
+        ],
+      ),
     ));
   }
 }
